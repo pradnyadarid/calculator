@@ -53,6 +53,20 @@ const inputOperator = (operator) => {
     currentNumber = '0'
 }
 
+const percentage = document.querySelectorAll(".percentage")
+percentage.forEach((persen) => {
+    persen.addEventListener("click", (event) => {
+        //console.log("persen")
+        //console.log(event.target.value)
+        inputPersen(event.target.value)
+        calculate()
+        updateScreen(currentNumber)
+    })
+})
+const inputPersen = (persen) => {
+    prevNumber = currentNumber
+}
+
 const equalSign = document.querySelector('.equal-sign')
 
 equalSign.addEventListener('click', () => {
@@ -69,6 +83,7 @@ const calculate = () => {
             result = parseFloat(prevNumber) + parseFloat(currentNumber)
             break
         case "-":
+            //result = prevNumber - currentNumber
             result = prevNumber - currentNumber
             break
         case "*":
@@ -76,6 +91,9 @@ const calculate = () => {
             break
         case "/":
             result = prevNumber / currentNumber
+            break
+        case "%":
+            result = prevNumber / 100
             break
         default:
             break
